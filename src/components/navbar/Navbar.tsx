@@ -44,6 +44,7 @@ const Navbar = () => {
       >
         {articleItems.map((item, index) => (
           <div
+            key={item.url}
             className="article-item"
             id={`article-item-${index + 1}`}
           >
@@ -59,7 +60,7 @@ const Navbar = () => {
 
               <div className="article-item-content">
                 <p id="article-item-name">{item.title}</p>
-                <p id="article-item-name">{item.subTitle}</p>
+                <p id="article-item-copy">{item.subTitle}</p>
               </div>
             </Link>
           </div>
