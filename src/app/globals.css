@@ -272,6 +272,7 @@ la animación "float" se activa en el elemento .inner dentro de cada
   backdrop-filter: blur(10px);
   cursor: pointer;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* La animación de estados active se realiza aquí */
 }
 
 .toggle-articles {
@@ -283,6 +284,10 @@ la animación "float" se activa en el elemento .inner dentro de cada
   pointer-events: none;
 }
 
+/* 
+ * Los items se colocan casi en el mismo sitio, con un pequeño 
+ * offset 
+ */
 .nav-external-links #article-item-1 {
   top: calc(1.5em);
 }
@@ -295,17 +300,23 @@ la animación "float" se activa en el elemento .inner dentro de cada
   top: calc(1.5em + 4px + 1.5em);
 }
 
+/*
+ * Con .active → items separados uno debajo del otro
+*/
 .nav-external-links.active #article-item-1 {
   top: calc(1.5em);
 }
 
 .nav-external-links.active #article-item-2 {
   top: calc(1.5em + 80px + 0.75em);
+  /* +80px (altura completa) */
 }
 
 .nav-external-links.active #article-item-3 {
   top: calc(1.5em + 160px + 1.5em);
+  /* +160px */
 }
+
 
 .nav-external-links.active .toggle-articles {
   opacity: 1;
