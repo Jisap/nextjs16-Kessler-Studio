@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const Information = () => {
   return (
-    <ReactLenis>
+    <ReactLenis root>
       <div className="information">
         <div className="container px-[1.5em] py-[12em]">
           <h1 className="normal-case">
@@ -41,6 +41,94 @@ const Information = () => {
                   ))}
                 </ul>
               </div>
+
+              <div className="flex-1">
+                <ul>
+                  {campaigns.map((item) => (
+                    <li key={item.id} className="text-[22px]">
+                      &#x2192; {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <p className="text-[22px]">
+                Let&rsquo;s make something that moves and sounds like it means it.
+                Whether you have a release, a launch, or just a feeling you want translated into motion,
+                I&rsquo;m always glad to talk it throungh.
+              </p>
+
+              <div className="mt-[2em]">
+                <Link href="mailto:hello@nadiakessler.studio" className="text-[22px]">
+                  &#x2192; Let&rsquo;s Connect
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex w-full gap-[2em] max-[900px]:flex-col max-[900px]:gap-[4em]">
+            <div className="flex flex-1 flex-col gap-[4em]">
+              <div>
+                <p>Recognition</p>
+
+                <div className="divider" />
+
+                <ul>
+                  {recognition.map((item) => (
+                    <li key={item.id}>
+                      &#x2192; {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex-1">
+              <div>
+                <p>Collaborations</p>
+
+                <div className="divider"></div>
+
+                <ul>
+                  {collaborations.map((item) => (
+                    <li key={item.id}>
+                      &#x2192; {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-[4em] flex w-full gap-[2em] max-[900px]:flex-col max-[900px]:gap-[4em]">
+            <div className="flex-1">
+              <p>Exhibitions, Talks, and Workshops</p>
+
+              <div className="divider" />
+
+              <ul>
+                {exhibitions.map((item) => (
+                  <li key={item.id}>
+                    &#x2192; {item.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex-1">
+              <p>Press</p>
+
+              <div className="divider" />
+
+              <ul>
+                {press.map((item) => (
+                  <li key={item.id}>
+                    &#x2192; {item.text}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
