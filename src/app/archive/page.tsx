@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { archives } from "@/data/archive";
 import Preview from "@/components/preview/Preview";
+import ReactLenis from "lenis/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +26,7 @@ const Archive = () => {
     const initialSet: ArchiveListItem[] = Array(120)                     // Se crea un array de 120 elementos.
       .fill(null)                                                        // Se llena con null.
       .flatMap((_, i) =>                                                 // Por cada uno de esos 120 elementos, toma el array original 
-        archives.map((archive, j) => ({                                  // y lo copia completo para crear un array único y largo con 120 archivos (aplanado)
+        archives.map((archive, j) => ({                                  // y lo copia completo para crear un array único y largo con 1200 archivos (aplanado)
           ...archive,                                                    // El resultado final será un archiveList con 1200 proyectos.
           name: `${archive.name}`,
           id: i * archives.length + j,                                   // Se crea un id único para cada archivo.
@@ -81,11 +82,33 @@ const Archive = () => {
   }, [archiveList]);
 
   return (
-    <div className="relative h-full w-full">
-      <Preview />
+    <ReactLenis root>
+      <div
+        className="archive relative h-full w-full"
+        ref={containerRef}
+        style={{ height: "100vh", top: "-25em" }}
+      >
+        <div className="container relative">
+          <div className="pointer-events-none fixed left-0 top-0 h-screen w-screen bg-gradient-to-b from-bg via-transparent to-bg" />
+          <Preview />
 
-      {/* TODO: infinite-scroll archive list */}
-    </div>
+          {archiveList.map((archive) => (
+            <div className="flex h-[100px] w-full" key={archive.id}>
+              <div className="archive-item h-full w-full max-[900px]:w-full">
+                <div className="flex items-center justify-between">
+                  <h1 id="archive-name">{archive.name}</h1>
+
+                  <p id="archive-category" className="text-right">
+                    {archive.category}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </ReactLenis>
   );
 };
 
