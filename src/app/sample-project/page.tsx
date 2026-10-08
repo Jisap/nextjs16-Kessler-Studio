@@ -114,7 +114,9 @@ const SampleProject = () => {
                 className="h-full w-full object-cover"
               />
             </div>
+          </div>
 
+          <div className="flex w-full gap-[1.5em] px-[1.5em] max-[900px]:flex-col">
             <div className="w-full pb-[1.5em]" style={{ aspectRatio: "5/4" }}>
               <Image
                 src="/images/sample-project/detail-3.jpg"
@@ -143,6 +145,12 @@ const SampleProject = () => {
               fill
               className="object-cover"
             />
+          </div>
+
+          <div className="flex h-screen w-full items-center justify-center">
+            <TransitionLink href="/projects">
+              <h1>Next Project</h1>
+            </TransitionLink>
           </div>
         </div>
       </div>
